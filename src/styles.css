@@ -4,6 +4,24 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@theme {
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "Karla", ui-sans-serif, system-ui, sans-serif;
+  --color-espresso: var(--espresso);
+  --color-crema: var(--crema);
+  --color-copper: var(--copper);
+  --color-leaf: var(--leaf);
+  --shadow-soft: 0 1px 2px oklch(0.25 0.05 60 / 8%), 0 12px 32px -12px oklch(0.25 0.05 60 / 18%);
+  --shadow-lift: 0 2px 4px oklch(0.25 0.05 60 / 10%), 0 24px 60px -20px oklch(0.25 0.05 60 / 30%);
+  --background-image-gradient-warm: linear-gradient(
+    140deg,
+    oklch(0.24 0.04 48) 0%,
+    oklch(0.32 0.07 42) 55%,
+    oklch(0.45 0.11 55) 100%
+  );
+}
+
+
 /*
  * Design system definition.
  *
@@ -62,40 +80,45 @@
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.984 0.003 247.858);
-  --sidebar-foreground: oklch(0.129 0.042 264.695);
-  --sidebar-primary: oklch(0.208 0.042 265.755);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.968 0.007 247.896);
-  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
-  --sidebar-border: oklch(0.929 0.013 255.508);
-  --sidebar-ring: oklch(0.704 0.04 256.788);
+  --radius: 0.75rem;
+  --espresso: oklch(0.24 0.04 48);
+  --crema: oklch(0.94 0.02 82);
+  --copper: oklch(0.62 0.13 55);
+  --leaf: oklch(0.52 0.09 145);
+  --background: oklch(0.98 0.012 84);
+  --foreground: oklch(0.25 0.035 48);
+  --card: oklch(1 0.006 84);
+  --card-foreground: oklch(0.25 0.035 48);
+  --popover: oklch(1 0.006 84);
+  --popover-foreground: oklch(0.25 0.035 48);
+  --primary: oklch(0.31 0.06 44);
+  --primary-foreground: oklch(0.97 0.015 84);
+  --secondary: oklch(0.94 0.022 82);
+  --secondary-foreground: oklch(0.31 0.06 44);
+  --muted: oklch(0.95 0.016 84);
+  --muted-foreground: oklch(0.5 0.03 58);
+  --accent: oklch(0.62 0.13 55);
+  --accent-foreground: oklch(0.99 0.01 84);
+  --destructive: oklch(0.55 0.19 27);
+  --destructive-foreground: oklch(0.98 0.01 84);
+  --border: oklch(0.89 0.02 78);
+  --input: oklch(0.89 0.02 78);
+  --ring: oklch(0.62 0.13 55);
+  --chart-1: oklch(0.62 0.13 55);
+  --chart-2: oklch(0.52 0.09 145);
+  --chart-3: oklch(0.31 0.06 44);
+  --chart-4: oklch(0.75 0.12 78);
+  --chart-5: oklch(0.5 0.03 58);
+  --sidebar: oklch(0.96 0.016 84);
+  --sidebar-foreground: oklch(0.25 0.035 48);
+  --sidebar-primary: oklch(0.31 0.06 44);
+  --sidebar-primary-foreground: oklch(0.97 0.015 84);
+  --sidebar-accent: oklch(0.94 0.022 82);
+  --sidebar-accent-foreground: oklch(0.31 0.06 44);
+  --sidebar-border: oklch(0.89 0.02 78);
+  --sidebar-ring: oklch(0.62 0.13 55);
 }
+
 
 .dark {
   --background: oklch(0.129 0.042 264.695);
@@ -141,4 +164,28 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
   }
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  body {
+    font-family: var(--font-sans);
+  }
+}
+
+@utility label-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-accent);
 }
