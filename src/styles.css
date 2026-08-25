@@ -4,6 +4,24 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@theme {
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "Karla", ui-sans-serif, system-ui, sans-serif;
+  --color-espresso: var(--espresso);
+  --color-crema: var(--crema);
+  --color-copper: var(--copper);
+  --color-leaf: var(--leaf);
+  --shadow-soft: 0 1px 2px oklch(0.25 0.05 60 / 8%), 0 12px 32px -12px oklch(0.25 0.05 60 / 18%);
+  --shadow-lift: 0 2px 4px oklch(0.25 0.05 60 / 10%), 0 24px 60px -20px oklch(0.25 0.05 60 / 30%);
+  --background-image-gradient-warm: linear-gradient(
+    140deg,
+    oklch(0.24 0.04 48) 0%,
+    oklch(0.32 0.07 42) 55%,
+    oklch(0.45 0.11 55) 100%
+  );
+}
+
+
 /*
  * Design system definition.
  *
