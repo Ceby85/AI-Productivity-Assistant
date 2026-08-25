@@ -137,7 +137,7 @@ function DisclaimerNote({ children }: { children: React.ReactNode }) {
 
 function Brief() {
   const [activeFeature, setActiveFeature] = useState(0);
-  const feature = aiFeatures[activeFeature];
+  const feature = aiFeatures[activeFeature] ?? aiFeatures[0]!;
 
   return (
     <div className="min-h-screen bg-background">
